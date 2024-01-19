@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DashboardGroupController;
+use App\Http\Controllers\DashboardUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//CMS
+Route::get('/dashboard', function () {
+    return view('CMS.dashboard');
+});
+Route::resource('/dashboard/groups', DashboardGroupController::class);
+Route::resource('/dashboard/users', DashboardUserController::class);
+
+//Frontend
 Route::get('/', function () {
-    return view('welcome');
+    return view('FE.home');
 });

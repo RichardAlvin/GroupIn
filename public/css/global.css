@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Button Style */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    border-radius: 5%;
+}
+
+.btn-outline {
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    color: white;
+    border-radius: 5%;
+    background-color: transparent;
+}
+
+.btn-icon {
+    padding: 10px 5px 5px 5px;
+    text-decoration: none;
+    align-items: center;
+}
+
+.btn-secondary, .btn-outline-secondary:hover { background-color: #6c757d;}
+.btn-primary, .btn-outline-primary:hover { background-color: #0d6efd;}
+.btn-success, .btn-outline-success:hover { background-color: #198754;}
+.btn-warning, .btn-outline-warning:hover { background-color: #ffc107;}
+.btn-danger, .btn-outine-danger:hover { background-color: #dc3545;}
+
+.btn-outline-secondary { border-color: #6c757d}
+.btn-outline-primary { background-color: #0d6efd;}
+.btn-outline-success { background-color: #198754;}
+.btn-outline-warning { background-color: #ffc107;}
+.btn-outine-danger{ background-color: #dc3545;}

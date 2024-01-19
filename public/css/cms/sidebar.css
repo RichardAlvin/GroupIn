@@ -1,0 +1,51 @@
+@import url('../global.css');
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+}
+
+.sidebar-header{
+    padding: 19px 10px;
+    background-color: #3f208a;
+    text-align: center;
+    color: white;
+}
+
+.sidebar-menu {
+    padding: 0;
+}
+
+.sidebar-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar-menu li:hover {
+    background-color: #976bff;
+}
+
+.sidebar-menu li.active {
+    background-color: #976bff;
+    color: white;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.sidebar-menu a li:hover {
+    color: white;
+}

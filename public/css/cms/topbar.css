@@ -1,0 +1,22 @@
+@import url('global.css');
+
+.topbar {
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* .topbar-left {
+    flex: 3;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.topbar-right {
+    flex: 7;
+    display: flex;
+    justify-content: right;
+} */

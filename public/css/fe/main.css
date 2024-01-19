@@ -1,0 +1,121 @@
+@import url('../global.css');
+
+.main {
+}
+
+.main-hero {
+    background-color: #a554de;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .main-hero-left{
+        width: 100%;
+        color:white;
+
+        .wrapper {
+            padding: 10% 0% 20% 40%;
+            line-height: 1.5;
+
+            h1 {
+                font-size: 48px;
+                margin-bottom: 20px;
+            }
+
+            p{
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .main-hero-right {
+        width: 100%;
+        color: red;
+    }
+}
+
+.main-info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .wrapper {
+        position: absolute;
+        top: -70px;
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 250px;
+
+        .item {
+            border: 1px solid black;    
+            width: 250px;  
+            margin: 0 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;    
+
+            .item-header {
+                background-color: #8f7fc7;
+                flex: 60%;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .item-body {   
+                flex: 40%;
+                padding: 10px;
+                text-align: center;
+
+                h1 {
+                    margin: 10px 0px;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+.main-search {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .search-container{ 
+        background-color: #8f7fc7;
+    }
+
+    .item-container {
+        background-color: #a554de;
+    }
+}
+
+.main-group {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+    .main-group-left {
+        flex: 1;
+        max-width: 50%;
+        padding: 20px;
+        box-sizing: border-box;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .main-group-right {
+        flex: 1;
+        max-width: 50%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
