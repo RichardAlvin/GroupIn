@@ -1,0 +1,8 @@
+@import url('../global.css');
+
+.footer {
+    background-color: #a554de;
+    text-align: center;
+    color: white;
+    padding: 20px 0px;
+}

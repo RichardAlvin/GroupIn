@@ -67,6 +67,9 @@
             <div class="item-card">test</div>
             <div class="item-card">test</div>
         </div>
+        <div class="see-more-item">
+            <button class="btn btn-primary">See More</button>
+        </div>
     </section>
     <section class="main-group">
         <div class="main-group-left">

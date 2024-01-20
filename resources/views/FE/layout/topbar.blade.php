@@ -10,7 +10,7 @@
         </ul>
     </div>
     <div class="topbar-right">
-        <button class="btn btn-primary">SignUp</button>
-        <button class="btn btn-secondary">LogIn</button>
+        <a href="/signup" class="btn btn-primary">SignUp</a>
+        <a href="/login" class="btn btn-secondary">LogIn</a>
     </div>
 </section>

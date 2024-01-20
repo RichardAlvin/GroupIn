@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardGroupController;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +26,6 @@ Route::resource('/dashboard/users', DashboardUserController::class);
 Route::get('/', function () {
     return view('FE.home');
 });
+
+Route::get('/login', [AuthController::class, 'loginView']);
+Route::get('/signup', [AuthController::class, 'signUpView']);

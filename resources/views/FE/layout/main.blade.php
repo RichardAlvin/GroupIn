@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="/css/fe/topbar.css">
     <link rel="stylesheet" href="/css/fe/main.css">
+    <link rel="stylesheet" href="/css/fe/footer.css">
     <!-- App favicon -->
     <link rel="shortcut icon" href="/img/logo.png">
 

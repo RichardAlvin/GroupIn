@@ -38,14 +38,14 @@
                 <thead>
                 <tbody>
                     @php
-                        $no = ($groups->currentpage()-1) * $groups->perpage() + 1
+                        $no = ($users->currentpage()-1) * $users->perpage() + 1
                     @endphp
-                    @foreach($groups as $group)
+                    @foreach($users as $user)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $group->name }}</td>
-                        <td>{{ $group->description }}</td>
-                        <td>{{ $group->updated_at }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->description }}</td>
+                        <td>{{ $user->updated_at }}</td>
                         <td>
                             <form action="/group/{{ $group->slug }}" method="post" style="display: inline;">
                                 @method('delete')

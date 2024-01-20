@@ -36,3 +36,7 @@
 .btn-outline-success { background-color: #198754;}
 .btn-outline-warning { background-color: #ffc107;}
 .btn-outine-danger{ background-color: #dc3545;}
+
+a {
+    text-decoration: none;
+}
