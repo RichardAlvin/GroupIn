@@ -1,0 +1,186 @@
+@import url('../global.css');
+
+.group {
+    height: 90vh;
+    padding: 20px 5%;
+    background-color: #f5f5f5;
+
+    .group-search {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #dac5fc;
+
+        .group-search-left {
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+
+            #createButton {
+                border-color: #533aab;
+                cursor:pointer;
+            }
+
+            .group-search-menu {
+                padding: 10px 20px;
+            }
+
+            .group-search-menu:hover {
+                background-color: #a554de;
+                color: #fff;
+            }
+
+            .group-search-menu.active {
+                background-color: #a554de;
+                color: #fff;
+            }
+
+            .group-add-menu {
+                padding: 10px 20px;
+                background-color: #533aab;
+                color: white;
+            }
+
+            .group-add-menu:hover {
+                transform: scale(1.1);
+                transition: transform 0.3s ease;
+            }
+        }
+
+        .group-search-right {
+            input {
+                padding: 5px;
+                margin-right: 20px;
+            }
+        }
+    }
+
+    .group-data {
+        background-color: white;
+        display:grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        padding: 20px 40px;
+
+        .card-item {
+            box-sizing: border-box;
+            /* width: 200px; */
+            border: 1px solid black;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+
+            .card-item-header {
+                height: 120px;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+
+                .corner-right-item {
+                    position: absolute;
+                    top: 10px;
+                    right: 0px;
+                    width: 50px;
+                    height: 40px;
+                    border-radius: 10px 0 0 10px;
+                    background-color: #dac5fc;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .corner-right-bottom-item {
+                    position: absolute;
+                    top: 50px;
+                    right: 0px;
+                    width: 70px;
+                    height: 40px;
+                    border-radius: 10px 0 0 10px;
+                    background-color: lightblue;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .corner-right-bottom-item.closed{
+                    background-color: lightsalmon;
+                }
+            }
+
+            .card-item-body {
+                padding: 10px;
+
+                h1 {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .card-item:hover {
+            transform: scale(1.05);
+            transition: transform 0.4s ease;
+        }
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+    width: 300px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f00;
+}
+
+.modal-body {
+    margin-top: 20px;
+}
+
+.modal-body label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.modal-footer {
+    margin-top: 20px;
+    text-align: right;
+}

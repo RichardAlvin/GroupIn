@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardGroupController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GroupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,5 +28,17 @@ Route::get('/', function () {
     return view('FE.home');
 });
 
-Route::get('/login', [AuthController::class, 'loginView']);
-Route::get('/signup', [AuthController::class, 'signUpView']);
+Route::controller(AuthController::class)->group(function() {
+    Route::get('/login', 'loginView');
+    Route::post('/login', 'login');
+    Route::get('/signup', 'signUpView');
+    Route::post('/signup', 'signUp');
+    Route::post('/authenticate', 'authenticate')->name('authenticate');
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::post('/logout', 'logout')->middleware('auth')->name('logout');
+});
+
+Route::controller(GroupController::class)->group(function() {
+    Route::get('/group', 'groupView');
+    Route::post('/group', 'groupCreate');
+})->middleware('auth');

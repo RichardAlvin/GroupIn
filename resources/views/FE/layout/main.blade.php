@@ -22,5 +22,6 @@
 
     <!-- JS Libraies -->
     @yield('thirdparty_js')
+    <script src="/js/fe/topbar.js"></script>
 </body>
 </html>

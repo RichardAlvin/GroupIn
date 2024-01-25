@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Group extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'name', 'description', 'group_picture'
+        'name', 'description', 'group_picture', 'slot', 'curr_slot', 'isOpen'
     ];
 
     public function scopeFilter($query, array $filters)

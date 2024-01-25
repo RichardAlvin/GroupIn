@@ -39,5 +39,45 @@
 }
 
 .topbar-right {
+    .topbar-right-wrapper {
+        position: relative;
+        display: inline-block;
 
+        .show-wrapper {
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border: 1px solid white;
+            padding: 5px 20px;
+
+            svg {
+                padding-right: 5px;
+            }
+        }
+
+        .hidden-wrapper {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+
+            a {
+                display: block;
+                color: #333;
+                text-decoration: none;
+                padding: 8px 20px;
+                transition: background-color 0.3s;
+            }
+
+            a:hover {
+                background-color: #7222ab;
+            }
+        }
+    }
 }

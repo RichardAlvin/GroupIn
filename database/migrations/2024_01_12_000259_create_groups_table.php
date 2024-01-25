@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
+            $table->integer('slot');
+            $table->integer('curr_slot')->default(0);
             $table->string('description');
+            $table->boolean('IsOpen')->default(false);
             $table->string('group_picture')->nullable();
             $table->timestamps();
         });

@@ -10,6 +10,11 @@
 
 @section('container')
 <section class="main">
+    @if(session()->has('success'))
+        <script>
+            alert("{{ session('success') }}");
+        </script>
+    @endif
     <section class="main-hero">
         <div class="main-hero-left">
             <div class="wrapper">
