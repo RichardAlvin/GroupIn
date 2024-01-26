@@ -10,9 +10,10 @@ use App\Models\GroupUser;
 class DetailGroupController extends Controller
 {
     public function groupDetailView(string $slug){
+        $group = Group::where('slug', $slug)->first();
         return view('FE.groupDetail', [
-            "group" => Group::where('slug', $slug)->first()
-            "member" => GroupUser::
+            "group" => $group,
+            "members" => GroupUser::with('user')->where('group_id', $group->id)->get()
         ]);
     }
 }
