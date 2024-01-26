@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest')->except([
+            'logout'
+        ]);
+    }
+
     public function loginView()
     {
         return view('FE.login');
@@ -54,5 +61,13 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'Your provided credentials do not match in our records.',
         ])->onlyInput('email');
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('home')
+            ->withSuccess('You have logged out successfully!');;
     }
 }

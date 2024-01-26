@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardGroupController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\DetailGroupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,10 +27,10 @@ Route::resource('/dashboard/users', DashboardUserController::class);
 //Frontend
 Route::get('/', function () {
     return view('FE.home');
-});
+})->name('home');
 
 Route::controller(AuthController::class)->group(function() {
-    Route::get('/login', 'loginView');
+    Route::get('/login', 'loginView')->name('login');
     Route::post('/login', 'login');
     Route::get('/signup', 'signUpView');
     Route::post('/signup', 'signUp');
@@ -42,3 +43,7 @@ Route::controller(GroupController::class)->group(function() {
     Route::get('/group', 'groupView');
     Route::post('/group', 'groupCreate');
 })->middleware('auth');
+
+Route::controller(DetailGroupController::class)->group(function() {
+    Route::get('/detail-group/{slug}', 'groupDetailView');
+});

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class GroupUser extends Model
 {
-    use HasFactory, sluggable;
+    use HasFactory;
 
     protected $guarded = ['id'];
 

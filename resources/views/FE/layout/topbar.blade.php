@@ -20,8 +20,14 @@
                     <h2>{{ Auth::user()->name }}</h2>
                 </div>
                 <div class="hidden-wrapper">
-                    <a href="/group">My Group</a>
-                    <a href="/logout" class="btn btn-danger">LogOut</a>
+                    <a href="/group?Group=Own">My Group</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"
+                        >Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
                 </div>
             </div>
         @endguest

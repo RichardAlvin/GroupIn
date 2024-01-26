@@ -13,7 +13,7 @@ class Group extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'name', 'description', 'group_picture', 'slot', 'curr_slot', 'isOpen'
+        'name', 'description', 'group_picture', 'slot', 'curr_slot', 'IsOpen'
     ];
 
     public function scopeFilter($query, array $filters)
