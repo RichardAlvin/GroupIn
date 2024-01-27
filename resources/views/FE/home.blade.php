@@ -21,7 +21,7 @@
                 <h1>Build Your Group, Easier, Together</h1>
                 <p>GroupIn make it easy to create groups, collaborate, and more interesting information</p>
                 <div class="wrapper-btn">
-                    <button class="btn btn-primary">Build Your Group</button>
+                    <a href="/group?Group=Own"><button class="btn btn-primary">Build Your Group</button></a>
                     <button class="btn-outline btn-outline-secondary">Get Information</button>
                 </div>
             </div>

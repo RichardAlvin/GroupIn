@@ -130,6 +130,72 @@
             transition: transform 0.4s ease;
         }
     }
+
+    .group-detail-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: #dac5fc;
+        padding: 5px 20px;
+
+        .group-detail-info-left {
+            flex: 0.8;
+            text-align: left;
+        }
+
+        .group-detail-info-right {
+            flex: 0.2;
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+        }
+    }
+
+    .group-detail-bottom {
+        display: flex;
+        flex-direction: row;
+        height: 450px;
+
+        .group-detail-member {
+            flex: 0.25;
+            background-color: lightgrey;
+
+            .group-detail-member-header{
+                padding: 20px;
+                text-align: center;
+                border-bottom: 1px solid black;
+            }
+
+            .group-detail-member-wrapper {
+                padding: 20px;
+
+                .group-detail-item {
+                    padding: 10px;
+                    border-bottom: 1px solid black;
+                    display:flex;
+                    flex-direction: row;
+
+                    .group-detail-item-left {
+                        flex: 0.8;
+                    }
+
+                    .group-detail-item-right {
+                        flex: 0.2;
+                    }
+                }
+
+                .group-detail-item:hover {
+                    background-color: #918a9c;
+                    color: white;
+                }
+            }
+        }
+
+        .group-detail-menu {
+            flex: 0.75;
+            background-color:#f2edfa;
+        }
+    }
 }
 
 .modal {

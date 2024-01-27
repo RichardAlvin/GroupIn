@@ -42,8 +42,11 @@ Route::controller(AuthController::class)->group(function() {
 Route::controller(GroupController::class)->group(function() {
     Route::get('/group', 'groupView');
     Route::post('/group', 'groupCreate');
+    Route::put('/group/{slug}', 'groupUpdate');
+    Route::delete('/group/{slug}', 'groupDelete');
 })->middleware('auth');
 
 Route::controller(DetailGroupController::class)->group(function() {
     Route::get('/detail-group/{slug}', 'groupDetailView');
-});
+    Route::POST('/detail-group/{slug}', 'joinGroup');
+})->middleware('auth');

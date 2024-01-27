@@ -1,6 +1,6 @@
 <section class="topbar">
     <div class="topbar-left">
-        <h1>GroupIn</h1>
+        <a href="/" style="color: white; text-decoration:none;"><h1>GroupIn</h1></a>
     </div>
     <div class="topbar-center">
         <ul>

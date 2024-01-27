@@ -35,19 +35,23 @@
     <section class="group-data">
         @if($isPublic)
             @foreach($groups as $group)
-                <a href="/detail-group/{{ $group->slug }}" style="text-decoration:none; color:black">
-                    <div class="card-item">
-                        <div class="card-item-header">
-                            <div class="corner-right-item"><b>{{ $group->curr_slot}} / {{ $group->slot }}</b></div>
-                            <div class="corner-right-bottom-item {{ $group->IsOpen == false ? 'closed' : 'open' }}"><b>{{ $group->IsOpen == false ? "Closed" : "Open" }}</b></div>
-                            <img src="/img/card-default-img.jpg" alt="Group_Image" />
+                <form id="joinGroupForm" action="/detail-group/{{ $group->slug }}" method="POST">
+                    @csrf <!-- CSRF protection for Laravel -->
+                    <button type="submit" style="background-color:white;border:none;"
+                        onclick="return confirmGroupJoin({{ $group->IsOpen }}, '{{ $group->name }}')">
+                        <div class="card-item">
+                            <div class="card-item-header">
+                                <div class="corner-right-item"><b>{{ $group->curr_slot}} / {{ $group->slot }}</b></div>
+                                <div class="corner-right-bottom-item {{ $group->IsOpen == false ? 'closed' : 'open' }}"><b>{{ $group->IsOpen == false ? "Closed" : "Open" }}</b></div>
+                                <img src="/img/card-default-img.jpg" alt="Group_Image" />
+                            </div>
+                            <div class="card-item-body">
+                                <h1>{{ $group->name }}</h1>
+                                <p>{{ $group->created_at }}</p>
+                            </div>
                         </div>
-                        <div class="card-item-body">
-                            <h1>{{ $group->name }}</h1>
-                            <p>{{ $group->created_at }}</p>
-                        </div>
-                    </div>
-                </a>
+                    </button>
+                </form>
             @endforeach
         @else
             @foreach($groups as $group)
