@@ -4,9 +4,9 @@
     </div>
     <div class="topbar-center">
         <ul>
-            <a><li>Training</li></a>
-            <a><li>Competition</li></a>
-            <a><li>Scholarship</li></a>
+            <a href="/training"><li>Training</li></a>
+            <a href="/competition"><li>Competition</li></a>
+            <a href="/scholarship"><li>Scholarship</li></a>
         </ul>
     </div>
     <div class="topbar-right">

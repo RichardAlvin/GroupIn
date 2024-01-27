@@ -6,6 +6,9 @@ use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\DetailGroupController;
+use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\ScholarshipController;
+use App\Http\Controllers\TrainingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +53,7 @@ Route::controller(DetailGroupController::class)->group(function() {
     Route::get('/detail-group/{slug}', 'groupDetailView');
     Route::POST('/detail-group/{slug}', 'joinGroup');
 })->middleware('auth');
+
+Route::get('/competition', [CompetitionController::class, 'index']);
+Route::get('/scholarship', [ScholarshipController::class, 'index']);
+Route::get('/training', [TrainingController::class, 'index']);

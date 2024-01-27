@@ -1,7 +1,7 @@
 @extends('FE.layout.main')
 
 @section('title')
-<title>GroupIn - Training</title>
+<title>GroupIn - Competition</title>
 @endsection
 
 @section('thirdparty_css')
@@ -11,17 +11,17 @@
 @section('container')
 <section class="menu">
     <div class="menu-header">
-        <h1>Training List</h1>
+        <h1>Competition List</h1>
     </div>
     <div class="menu-body">
-        @foreach($trainings as $training)
+        @foreach($competitions as $competition)
             <div class="menu-item">
                 <div class="menu-item-header">
-                    <img src="" alt="{{ $training->title }}">
+                    <img src="" alt="{{ $competition->title }}">
                 </div>
                 <div class="menu-item-body">
-                    <h2>{{ $training->title }}</h2>
-                    <p>{{ $training->created_at }}</p>
+                    <h2>{{ $competition->title }}</h2>
+                    <p>{{ $competition->created_at }}</p>
                 </div>
             </div>
         @endforeach

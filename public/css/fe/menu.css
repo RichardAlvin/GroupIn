@@ -1,0 +1,25 @@
+@import url('../global.css');
+
+.menu {
+    display:flex;
+    flex-direction: column;
+    padding: 2% 5%;
+
+    .menu-header {
+        text-align:center;
+        margin-bottom: 20px;
+    }
+
+    .menu-body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .menu-item {
+            width: calc(25% - 10px); /* Set each item to occupy 25% of the container width with space in between */
+            margin-bottom: 20px; /* Add space at the bottom of each item */
+            box-sizing: border-box; /* Include padding and border in the width */
+            border: 1px solid #ccc;
+        }
+    }
+}
