@@ -42,7 +42,7 @@
                     <button class="btn btn-success">Sign In</button>
                 </div>
                 <div class="link-btn">
-                    <a href="/signup">Don't have an account?</a>
+                    <a href="/login">already have an account?</a>
                     <a href="/forgot-pass">Forgot password?</a>
                 </div>
             </form>

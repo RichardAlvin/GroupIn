@@ -123,7 +123,24 @@
                 </nav>
             </div>
             <div class="group-detail-menu-bottom">
-
+                {{-- Pending Member Div --}}
+                <div class="pending-member">
+                    <div class="pending-member-header">
+                        <h4>Pending Member</h4>
+                    </div>
+                    <div class="pending-member-body">
+                        @foreach($pendingMembers as $pendingMember)
+                            <div class="pending-member-item">
+                                <div class="pending-member-item-left">
+                                    {{ $pendingMember->user->name }}
+                                </div>
+                                <div class="pending-member-item-right">
+                                    button
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </section>
     </section>

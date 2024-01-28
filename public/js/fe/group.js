@@ -2,10 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var urlParams = new URLSearchParams(window.location.search);
     var activeGroup = urlParams.get('Group');
 
-    var modal = document.getElementById('modal');
+    var modalCreateGroup = document.getElementById('modal');
     var modalMember = document.getElementById('modalMember');
+    //var modalJoinGroup = document.getElementById('modalJoinGroup');
 
     var createButton = document.getElementById('createButton');
+    //var joinGroupButton = document.getElementById('join-group');
     var closeBtn = document.getElementsByClassName('close')[0];
     var cancelButton = document.getElementById('cancelButton');
 
@@ -24,19 +26,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     createButton.onclick = function () {
-        modal.style.display = 'block';
+        modalCreateGroup.style.display = 'block';
     };
 
+    joinGroupButton.onclick = function () {
+        modalJoinGroup.style.display = 'block';
+    }
+
     closeBtn.onclick = function () {
-        modal.style.display = 'none';
+        modalCreateGroup.style.display = 'none';
     };
 
     cancelButton.onclick = function () {
-        modal.style.display = 'none';
+        modalCreateGroup.style.display = 'none';
     };
 
     detailMember.onclick = function () {
-        modal.style.display = 'none';
+        modalMember.style.display = 'none';
+    }
+
+
+    // Close modal when user clicks outside of it
+    window.onclick = function(event) {
+        var modals = document.getElementsByClassName('modal');
+        for (var i = 0; i < modals.length; i++) {
+            var modal = modals[i];
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     }
 
     window.onclick = function (event) {
@@ -55,4 +73,27 @@ function confirmGroupJoin(isOpen, groupName) {
         alert('This group is closed for joining.');
         return false; // Halt form submission
     }
+}
+
+//join group modal
+function openModal(groupId) {
+    var modal = document.getElementById('groupModal' + groupId);
+    modal.style.display = "block";
+}
+
+function closeModal(groupId) {
+    var modal = document.getElementById('groupModal' + groupId);
+    modal.style.display = "none";
+}
+
+
+//Pending Modal
+function openModalPending(groupId) {
+    var modal = document.getElementById('groupModalPending' + groupId);
+    modal.style.display = "block";
+}
+
+function closeModalPending(groupId) {
+    var modal = document.getElementById('groupModalPending' + groupId);
+    modal.style.display = "none";
 }

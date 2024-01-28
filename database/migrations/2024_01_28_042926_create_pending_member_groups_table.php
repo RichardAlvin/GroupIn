@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('group_users', function (Blueprint $table) {
+        Schema::create('pending_member_groups', function (Blueprint $table) {
             $table->id();
             $table->foreignId('group_id');
             $table->foreignId('user_id');
-            $table->boolean('IsOwner')->default(false);
-            $table->boolean('IsEdit')->default(false);
-            $table->boolean('IsView')->default(true);
+            $table->string('message');
+            $table->string('link');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('group_users');
+        Schema::dropIfExists('pending_member_groups');
     }
 };

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Group;
 use App\Models\GroupUser;
+use App\Models\PendingMemberGroup;
 use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller
@@ -21,17 +22,24 @@ class GroupController extends Controller
         if($groupQuery == "Own"){
             $groups = GroupUser::with('group')->where('user_id', $userId)->simplePaginate(10);
             $isPublic = false;
+            $isPending = false;
+        }else if($groupQuery == "Pending"){
+            $groups = PendingMemberGroup::with('group')->where('user_id', $userId)->simplePaginate(10);
+            $isPublic = false;
+            $isPending = true;
         }else {
             $userJoinedGroups = GroupUser::where('user_id', $userId)->pluck('group_id')->toArray();
             $groups = Group::orderBy('created_at')
                 ->whereNotIn('id', $userJoinedGroups)
                 ->simplePaginate(10);
             $isPublic = true;
+            $isPending = false;
         }
 
         return view('FE.group', [
             "groups" => $groups,
-            "isPublic" => $isPublic
+            "isPublic" => $isPublic,
+            "isPending" => $isPending
         ]);
     }
 

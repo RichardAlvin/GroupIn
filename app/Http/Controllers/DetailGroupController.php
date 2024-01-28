@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Group;
 use App\Models\GroupUser;
+use App\Models\PendingMemberGroup;
 use Illuminate\Support\Facades\Auth;
 
 class DetailGroupController extends Controller
@@ -18,10 +19,12 @@ class DetailGroupController extends Controller
         $group = Group::where('slug', $slug)->first();
         $userId = Auth::id();
         $isOwner = GroupUser::where('group_id', $group->id)->where('user_id', $userId)->select('IsOwner')->first();
+        $pendingMember = PendingMemberGroup::with('user')->where('group_id', $group->id)->get();
         return view('FE.groupDetail', [
             "group" => $group,
             "members" => GroupUser::with('user')->where('group_id', $group->id)->get(),
-            "isOwner" => $isOwner->isOwner
+            "isOwner" => $isOwner->isOwner,
+            "pendingMembers" => $pendingMember
         ]);
     }
 

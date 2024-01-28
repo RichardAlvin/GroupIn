@@ -10,6 +10,7 @@ use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\ScholarshipController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PendingMemberGroupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +53,11 @@ Route::controller(DetailGroupController::class)->group(function() {
     Route::get('/detail-group/{slug}', 'groupDetailView');
     Route::POST('/detail-group/{slug}', 'joinGroup');
 })->middleware('auth');
+
+Route::controller(PendingMemberGroupController::class)->group(function() {
+    Route::post('/pending-member', 'pendingMember');
+    Route::delete('/pending-member/{id}', 'removePendingMember');
+});
 
 Route::get('/competition', [CompetitionController::class, 'index']);
 Route::get('/scholarship', [ScholarshipController::class, 'index']);
