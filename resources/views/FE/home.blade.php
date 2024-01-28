@@ -22,7 +22,7 @@
                 <p>GroupIn make it easy to create groups, collaborate, and more interesting information</p>
                 <div class="wrapper-btn">
                     <a href="/group?Group=Own"><button class="btn btn-primary">Build Your Group</button></a>
-                    <button class="btn-outline btn-outline-secondary">Get Information</button>
+                    <button class="btn-outline btn-outline-secondary" id="scroll-button">Get Information</button>
                 </div>
             </div>
         </div>
@@ -60,17 +60,24 @@
             </div>
         </div>
     </section>
-    <section class="main-search">
+    <section id="main-search" class="main-search">
         <div class="search-container">
             <div class="search-column">Training</div>
             <div class="search-column">Competition</div>
             <div class="search-column">Scholarship</div>
         </div>
         <div class="item-container">
-            <div class="item-card">test</div>
-            <div class="item-card">test</div>
-            <div class="item-card">test</div>
-            <div class="item-card">test</div>
+            @foreach($competitions as $competition)
+            <div class="item-card">
+                <div class="item-card-header">
+                    <img src="/img/card-default-img.jpg" alt="{{ $competition->title }}">
+                </div>
+                <div class="item-card-body">
+                    <h1>{{ $competition->title }}</h1>
+                    <p>{{ $competition->created_at }}</p>
+                </div>
+            </div>
+            @endforeach
         </div>
         <div class="see-more-item">
             <button class="btn btn-primary">See More</button>
@@ -85,12 +92,14 @@
             <p>Build your group and your group will appear public. People can
                 see your group and join your group. You can also put some selecting process.
                 So you can select people who want to join your group.
-            <button class="btn btn-primary">Build Your Group</button>
+            <div>
+                <a href="/group?Group=Own" class="btn btn-primary">Build Your Group</a>
+            </div>
         </div>
     </section>
 </section>
 @endsection
 
 @section('thirdparty_js')
-
+<script src="/js/fe/home.js"></script>
 @endsection

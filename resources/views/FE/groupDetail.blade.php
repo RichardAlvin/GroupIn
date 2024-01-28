@@ -114,6 +114,13 @@
     
         <section class="group-detail-menu">
             <div class="group-detail-menu-top">
+                <nav class="horizontal-navbar">
+                    <ul>
+                        <li><a href="#">To Do List</a></li>
+                        <li><a href="#">Group Chat</a></li>
+                        <li><a href="#">Pending Member</a></li>
+                    </ul>
+                </nav>
             </div>
             <div class="group-detail-menu-bottom">
 

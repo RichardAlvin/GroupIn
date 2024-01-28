@@ -83,7 +83,7 @@
 }
 
 .main-search {
-    height: 60vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     background-color: #8f7fc7;
@@ -115,6 +115,31 @@
             margin: 5px;
             flex: 1; /* Allow items to take equal width */
             box-sizing: border-box;
+            background-color: white;
+
+            .item-card-header {
+                height: 250px;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+
+            .item-card-body {
+                padding: 10px;
+
+                h1 {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .item-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.4s ease;
         }
     }
 

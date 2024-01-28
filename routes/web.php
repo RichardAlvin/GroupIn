@@ -9,6 +9,7 @@ use App\Http\Controllers\DetailGroupController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\ScholarshipController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,9 +29,7 @@ Route::resource('/dashboard/groups', DashboardGroupController::class);
 Route::resource('/dashboard/users', DashboardUserController::class);
 
 //Frontend
-Route::get('/', function () {
-    return view('FE.home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::controller(AuthController::class)->group(function() {
     Route::get('/login', 'loginView')->name('login');
