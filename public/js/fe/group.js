@@ -64,10 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
-function confirmGroupJoin(isOpen, groupName) {
+function confirmGroupJoin(isOpen, pendingMember) {
     if (isOpen) {
         // If the group is open, confirm before proceeding
-        return confirm('Are you sure you want to join ' + groupName + '?');
+        return confirm('Are you sure you want to accept ' + pendingMember + '?');
     } else {
         // If the group is closed, show an alert
         alert('This group is closed for joining.');

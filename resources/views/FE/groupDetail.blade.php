@@ -126,7 +126,7 @@
                 {{-- Pending Member Div --}}
                 <div class="pending-member">
                     <div class="pending-member-header">
-                        <h4>Pending Member</h4>
+                        <h3>Pending Member</h3>
                     </div>
                     <div class="pending-member-body">
                         @foreach($pendingMembers as $pendingMember)
@@ -135,7 +135,23 @@
                                     {{ $pendingMember->user->name }}
                                 </div>
                                 <div class="pending-member-item-right">
-                                    button
+                                    <form action="/detail-group/{{ $group->slug }}" method="POST">
+                                        @csrf <!-- CSRF protection for Laravel -->
+                                        <input type="hidden" name="user_id" value="{{ $pendingMember->user->id }}"/>
+                                        <button type="submit" class="btn-icon btn-success" onclick="return confirmGroupJoin({{ $group->IsOpen }}, '{{ $pendingMember->user->name }}')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                        </svg>
+                                        </button>
+                                    </form>
+                                    <form action="/pending-member/{{ $pendingMember->user->id }}" method="POST">
+                                        @csrf <!-- CSRF protection for Laravel -->
+                                        @method('delete')
+                                        <input type="hidden" name="group_id" value="{{ $group->id }}"/>
+                                        <button type="submit" class="btn-icon btn-danger"  onclick="return confirmRemovePendingMember({{ $group->IsOpen }}, '{{ $pendingMember->user->name }}')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ban" viewBox="0 0 16 16">
+                                            <path d="M15 8a6.97 6.97 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0"/>
+                                        </svg>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         @endforeach

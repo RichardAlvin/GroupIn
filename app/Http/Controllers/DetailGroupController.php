@@ -28,7 +28,7 @@ class DetailGroupController extends Controller
         ]);
     }
 
-    public function joinGroup(string $slug){
+    public function joinGroup(Request $request, string $slug){
         $group = Group::where('slug', $slug)->first();
 
         //check the group is open or closed
@@ -36,10 +36,10 @@ class DetailGroupController extends Controller
             return back();
         }
 
-        $userId = Auth::id();
+        // $userId = Auth::id();
         //check the user already join the group
         $alreadyJoin = GroupUser::where('group_id', $group->id)
-                   ->where('user_id', $userId)
+                   ->where('user_id', $request->user_id)
                    ->exists();
         if($alreadyJoin){
             return back();
@@ -50,13 +50,17 @@ class DetailGroupController extends Controller
 
         GroupUser::create([
             'group_id' => $group->id,
-            'user_id' => $userId,
+            'user_id' => $request->user_id,
             'IsOwner' => false,
             'IsEdit' => false,
             'IsView' => true
         ]);
 
-        return redirect('/group?Group=Own')
-        ->withSuccess('You have successfully join public group!');
+        //delete pendingMember
+        $pendingMember = PendingMemberGroup::where('group_id', $group->id)->where('user_id', $request->user_id)->first();
+        $pendingMember->delete();
+
+        return redirect('/group/'.$group->slug)
+        ->withSuccess('Pending Member succesfull join group!');
     }
 }
