@@ -60,7 +60,7 @@ class DetailGroupController extends Controller
         $pendingMember = PendingMemberGroup::where('group_id', $group->id)->where('user_id', $request->user_id)->first();
         $pendingMember->delete();
 
-        return redirect('/group/'.$group->slug)
+        return redirect('/detail-group/'.$group->slug)
         ->withSuccess('Pending Member succesfull join group!');
     }
 }

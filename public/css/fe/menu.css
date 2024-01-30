@@ -20,6 +20,23 @@
             margin-bottom: 20px; /* Add space at the bottom of each item */
             box-sizing: border-box; /* Include padding and border in the width */
             border: 1px solid #ccc;
+
+            .menu-item-header {
+                height: 200px;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+
+            .menu-item-body {
+                text-align: center;
+                padding: 2% 5%;
+            }
         }
     }
 }

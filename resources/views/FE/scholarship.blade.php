@@ -17,7 +17,7 @@
         @foreach($scholarships as $scholarship)
             <div class="menu-item">
                 <div class="menu-item-header">
-                    <img src="" alt="{{ $scholarship->title }}">
+                    <img src="/img/card-default-img.jpg" alt="{{ $scholarship->title }}">
                 </div>
                 <div class="menu-item-body">
                     <h2>{{ $scholarship->title }}</h2>

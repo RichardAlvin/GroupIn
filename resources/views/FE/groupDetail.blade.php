@@ -71,7 +71,7 @@
                             </p>
                         </div>
                         <div class="group-detail-item-right">
-                            <button id="detailMember" class="btn btn-primary">
+                            <button onclick="openModalMember('{{ $member->id }}')" id="detailMember" class="btn btn-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
                                 </svg>
@@ -79,33 +79,17 @@
                         </div>
                     </div>
 
-                    <div id="modalMember" class="modal">
+                    <div id="modalMember{{ $member->id }}" class="modal">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h2>Edit Member</h2>
-                                <span class="close">&times;</span>
+                                <h2>Edit Member Permission</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModalMember('{{ $member->id }}')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <form action="/group/{{ $group->slug }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="modal-body">
-                                    <label for="groupName">Name:</label>
-                                    <input type="text" id="groupName" name="name" required value="{{ old('name', $group->name) }}">
-                        
-                                    <label for="groupDescription">Description:</label>
-                                    <input type="text" id="groupDescription" name="description" required value="{{ old('description', $group->description) }}">
-                        
-                                    <label for="groupSlot">Slot:</label>
-                                    <input type="number" id="groupSlot" name="slot" required min=1 max=10 value="{{ old('slot', $group->slot) }}">
-                
-                                    <label for="groupOpen">Open for Public?:</label>
-                                    <input type="checkbox" id="groupOpen" name="IsOpen" {{ $group->IsOpen ? 'checked' : '' }}>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary" id="addButton">Edit</button>
-                                    <button class="btn btn-danger" id="cancelButton">Cancel</button>
-                                </div>
-                            </form>
+                            <div class="modal-body">
+                                <h3>User Permission Detail - OnProgress</h3>
+                            </div>
                         </div>
                     </div>
                 @endforeach

@@ -17,7 +17,7 @@
         @foreach($competitions as $competition)
             <div class="menu-item">
                 <div class="menu-item-header">
-                    <img src="" alt="{{ $competition->title }}">
+                    <img src="/img/card-default-img.jpg" alt="{{ $competition->title }}">
                 </div>
                 <div class="menu-item-body">
                     <h2>{{ $competition->title }}</h2>

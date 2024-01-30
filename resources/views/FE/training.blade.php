@@ -17,7 +17,7 @@
         @foreach($trainings as $training)
             <div class="menu-item">
                 <div class="menu-item-header">
-                    <img src="" alt="{{ $training->title }}">
+                    <img src="/img/card-default-img.jpg" alt="{{ $training->title }}">
                 </div>
                 <div class="menu-item-body">
                     <h2>{{ $training->title }}</h2>

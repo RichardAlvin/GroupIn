@@ -107,9 +107,10 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="/pending-member/{{ $group->group->id }}" method="POST">
+                            <form action="/pending-member/{{ Auth::user()->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
+                                <input type="hidden" name="group_id" value="{{ $group->group->id }}" />
                                 <div class="modal-footer">
                                     <button class="btn btn-primary" id="addButton">UnFollow</button>
                                     <button class="btn btn-danger" id="cancelButton">Back</button>
@@ -207,21 +208,3 @@
 @section('thirdparty_js')
 <script src="/js/fe/group.js"></script>
 @endsection
-
-{{-- <form id="joinGroupForm" action="/detail-group/{{ $group->slug }}" method="POST">
-    @csrf <!-- CSRF protection for Laravel -->
-    <button type="submit" style="background-color:white;border:none;"
-        onclick="return confirmGroupJoin({{ $group->IsOpen }}, '{{ $group->name }}')">
-        <div class="card-item">
-            <div class="card-item-header">
-                <div class="corner-right-item"><b>{{ $group->curr_slot}} / {{ $group->slot }}</b></div>
-                <div class="corner-right-bottom-item {{ $group->IsOpen == false ? 'closed' : 'open' }}"><b>{{ $group->IsOpen == false ? "Closed" : "Open" }}</b></div>
-                <img src="/img/card-default-img.jpg" alt="Group_Image" />
-            </div>
-            <div class="card-item-body">
-                <h1>{{ $group->name }}</h1>
-                <p>{{ $group->created_at }}</p>
-            </div>
-        </div>
-    </button>
-</form> --}}

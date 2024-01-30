@@ -34,12 +34,18 @@ class PendingMemberGroupController extends Controller
         ->withSuccess('Wait for the admin to accept you to the group!');
     }
 
-    public function removePendingMember(string $id) {
-        $userId = Auth::id();
-        $deletePendingGroup = PendingMemberGroup::where('group_id', $id)->where('user_id', $userId)->first();
+    public function removePendingMember(Request $request, string $userId) {
+        $group = Group::where('id', $request->group_id)->first();
+        $deletePendingGroup = PendingMemberGroup::where('group_id', $request->group_id)->where('user_id', $userId)->first();
         $deletePendingGroup->delete();
 
-        return redirect('/group?Group=Pending')
-        ->withSuccess('You have successfully delete pending group!');
+        $myId = Auth::id();
+        if($myId == $userId){
+            return redirect('/group?Group=Pending')
+            ->withSuccess('You have successfully delete pending group!');
+        }else {
+            return redirect('/detail-group/'.$group->slug)
+            ->withSuccess('You have successfully delete pending group!');
+        }
     }
 }

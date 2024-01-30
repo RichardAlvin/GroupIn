@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var activeGroup = urlParams.get('Group');
 
     var modalCreateGroup = document.getElementById('modal');
-    var modalMember = document.getElementById('modalMember');
     //var modalJoinGroup = document.getElementById('modalJoinGroup');
 
     var createButton = document.getElementById('createButton');
@@ -95,5 +94,16 @@ function openModalPending(groupId) {
 
 function closeModalPending(groupId) {
     var modal = document.getElementById('groupModalPending' + groupId);
+    modal.style.display = "none";
+}
+
+//Member Modal
+function openModalMember(groupId) {
+    var modal = document.getElementById('modalMember' + groupId);
+    modal.style.display = "block";
+}
+
+function closeModalMember(groupId) {
+    var modal = document.getElementById('modalMember' + groupId);
     modal.style.display = "none";
 }
