@@ -19,7 +19,7 @@
         <div class="main-hero-left">
             <div class="wrapper">
                 <h1>Build Your Group, Easier, Together</h1>
-                <p>GroupIn make it easy to create groups, collaborate, and more interesting information</p>
+                <p>GroupIn make it easy to create groups, collaborate, and more interesting informations</p>
                 <div class="wrapper-btn">
                     <a href="/group?Group=Own"><button class="btn btn-primary">Build Your Group</button></a>
                     <button class="btn-outline btn-outline-secondary" id="scroll-button">Get Information</button>
